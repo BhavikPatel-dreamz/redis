@@ -6,6 +6,7 @@
 #   &*  = all pub/sub channels
 #   +@all = all commands (use +@read for read-only)
 
-user default on sanitize-payload >CHANGE_DEFAULT_PASSWORD ~* &* +@all
+# Turn default off and use named users (recommended for public Redis)
+user default off
+user mrsupilment on sanitize-payload >CHANGE_ME_STRONG_PASSWORD ~* &* +@all
 user app1 on sanitize-payload >CHANGE_APP1_PASSWORD ~* &* +@all
-user app2 on sanitize-payload >CHANGE_APP2_PASSWORD ~* &* +@all
